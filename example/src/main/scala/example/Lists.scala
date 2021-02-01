@@ -55,4 +55,6 @@ object Lists {
       if (max > ints.head) max else ints.head
     }
   }
+
+  def loop(x: Int): Int = loop(1)
 }
