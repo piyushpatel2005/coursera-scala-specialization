@@ -32,12 +32,19 @@ object RecFun extends RecFunInterface {
 
   }
 
+  def pascalPatternMatching(c: Int, r: Int): Int = (c,r) match {
+    case (0, _) => 1
+    case (c, r) if (c == r) => 1
+    case (c, r) => pascalPatternMatching(c, r-1) + pascalPatternMatching(c-1, r-1)
+  }
+
 
   /**
    * Exercise 2
    */
   def balance(chars: List[Char]): Boolean = {
 
+    @tailrec
     def balancePatternMatching(chars: List[Char], count: Int = 0): Boolean = (chars, count) match {
       case (chars, 0) if chars.isEmpty => true
       case (chars, _) if chars.isEmpty => false
